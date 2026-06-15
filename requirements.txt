@@ -1,3 +1,7 @@
 Django~=6.0.6
 pre-commit~=4.6.0
-mypy~=2.1.0
+mypy~=2.0.0
+black~=26.5.1
+django-stubs[compatible-mypy]~=6.0.5
+psycopg2~=2.9.12; sys_platform == "linux"
+psycopg2-binary~=2.9.12; sys_platform != "linux"
