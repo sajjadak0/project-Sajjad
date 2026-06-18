@@ -17,11 +17,12 @@ Including another URLconf
 
 from django.conf.urls.static import static
 from django.contrib import admin
-from django.urls import URLPattern, URLResolver, path
+from django.urls import URLPattern, URLResolver, include, path
 from building_manager_app import settings
 
 urlpatterns: list[URLPattern | URLResolver] = [
     path("admin/", admin.site.urls),
+    path("", include("core.urls")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
