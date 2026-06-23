@@ -1,0 +1,61 @@
+{% if field.is_hidden %}
+    {{ field }}
+{% elif is_inline %}
+    <div class="row mb-3 align-items-start">
+        <label for="{{ field.id_for_label }}"
+               class="col-sm-3 col-form-label">
+            {{ field.label }}
+        </label>
+
+        <div class="col-sm-9">
+            {{ field }}
+
+            {% if field.help_text %}
+                <div class="form-text">
+                    {{ field.help_text }}
+                </div>
+            {% endif %}
+
+            {% if field.errors %}
+                <div id="{{ field.name }}-error"
+                     class="invalid-feedback d-block">
+                    {% for error in field.errors %}
+                        {{ error }}
+
+                        {% if not forloop.last %}
+                            <br>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% else %}
+    <div class="mb-3">
+        <label for="{{ field.id_for_label }}"
+               class="form-label">
+            {{ field.label }}
+        </label>
+
+        {{ field }}
+
+        {% if field.help_text %}
+            <div class="form-text">
+                {{ field.help_text }}
+            </div>
+        {% endif %}
+
+        {% if field.errors %}
+            <div id="{{ field.name }}-error"
+                 class="invalid-feedback d-block">
+                {% for error in field.errors %}
+                    {{ error }}
+
+                    {% if not forloop.last %}
+                        <br>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}

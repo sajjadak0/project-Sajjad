@@ -1,0 +1,21 @@
+
+{% load vite-loader %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> salam sepehr </title>
+</head>
+<body>
+    <div x-data="logtest">
+        <h1 x-text="title"></h1>
+        <div x-ref="testakiDiv"></div>
+        <button @click="changeTitle()">
+            Toggel
+        </button>
+    </div>
+    {% vite_loader "alpine-entry" %}
+    
+</body>
+</html>
