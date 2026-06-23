@@ -32,19 +32,14 @@ def vite_loader(name: str) -> str:
     entry = manifest.get(entry_path)
 
     if not entry:
-        raise ImproperlyConfigured(
-            f"Vite entry not found in manifest: {entry_path}"
-        )
+        raise ImproperlyConfigured(f"Vite entry not found in manifest: {entry_path}")
 
     static_dist_url = f"{settings.STATIC_URL}dist/"
 
     css_tags = format_html_join(
         "\n",
         '<link rel="stylesheet" href="{}{}">',
-        (
-            (static_dist_url, css_file)
-            for css_file in entry.get("css", [])
-        ),
+        ((static_dist_url, css_file) for css_file in entry.get("css", [])),
     )
 
     js_tag = format_html(
@@ -57,4 +52,4 @@ def vite_loader(name: str) -> str:
         "{}\n{}",
         css_tags,
         js_tag,
-    )   
+    )
