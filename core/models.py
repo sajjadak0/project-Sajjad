@@ -11,7 +11,7 @@ class UserModel(AbstractUser):
     REQUIRED_FIELDS = []
 
 
-class ResetPassword(models.Model):
+class ResetPasswordModel(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     token = models.CharField(max_length=256, unique=True)
     expires_at = models.DateTimeField()
