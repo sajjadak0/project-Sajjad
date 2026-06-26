@@ -1,0 +1,39 @@
+{% extends "core/base.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+    <main class="container min-vh-100 d-flex align-items-center justify-content-center py-5">
+        <div class="card shadow-sm w-100" style="max-width: 480px;">
+            <div class="card-body p-4">
+                <div class="mb-4 text-center">
+                    <h1 class="h4 mb-1">
+                        Building Manager
+                    </h1>
+
+                    <p class="text-muted mb-0">
+                        Login to your account
+                    </p>
+                </div>
+
+                {% include "core/_form_error.html" with form=login_form only %}
+
+                <form action="{% url 'internal_auth:login' %}"
+                      method="post"
+                      novalidate>
+                    {% csrf_token %}
+
+                    {% for field in login_form %}
+                        {% include "core/_input.html" with field=field only %}
+                    {% endfor %}
+
+                    <button type="submit" class="btn btn-primary w-100">
+                        Login
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

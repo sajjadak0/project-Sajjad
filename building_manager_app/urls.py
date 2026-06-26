@@ -23,6 +23,7 @@ from building_manager_app import settings
 urlpatterns: list[URLPattern | URLResolver] = [
     path("admin/", admin.site.urls),
     path("", include("core.urls")),
+    path("auth/", include("internal_auth.urls")),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
