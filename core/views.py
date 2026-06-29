@@ -4,7 +4,10 @@ from django.template import loader
 from django.views import View
 
 from core.forms import ResetPasswordForm
-from core.services.email_services import set_new_password, validate_token
+from core.services.reset_password_processes_service import (
+    set_new_password,
+    validate_token,
+)
 
 
 async def SepehrView(request: HttpRequest) -> HttpResponse:
