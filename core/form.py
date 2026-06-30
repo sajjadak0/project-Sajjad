@@ -26,7 +26,9 @@ class BaseForm(forms.Form):
                 continue
 
             self._add_widget_class(field_name, "is-invalid")
-            self.fields[field_name].widget.attrs["aria-describedby"] = f"{field_name}-error"
+            self.fields[field_name].widget.attrs[
+                "aria-describedby"
+            ] = f"{field_name}-error"
 
         return is_form_valid
 
