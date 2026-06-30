@@ -8,10 +8,14 @@ export default defineConfig({
     emptyOutDir: true,
     manifest: true,
     rollupOptions: {
-      input: "src/entry/alpine-entry.ts",
+      input: {
+        "alpine-entry": resolve(__dirname, "src/entry/alpine-entry.ts"),
+        "bootstrap-entry": resolve(__dirname, "src/entry/bootstrap-entry.ts"),
+      },
       output: {
         entryFileNames: "[name].[hash].js",
         chunkFileNames: "chunks/[name].[hash].js",
+        assetFileNames: "assets/[name].[hash].css"
       },
     },
   },

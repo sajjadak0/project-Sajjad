@@ -1,0 +1,19 @@
+{% extends "core/dashboard_base.html" %}
+
+{% block dashboard_title %}
+    خانه
+{% endblock %}
+
+{% block dashboard_topbar %}
+    {% include "dashboard/_topbar.html" with topbar_title="خانه" only %}
+{% endblock %}
+
+{% block dashboard_content %}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h2 class="h5 card-title">
+                قالب داشبورد آماده است.
+            </h2>
+        </div>
+    </div>
+{% endblock %}

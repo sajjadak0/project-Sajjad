@@ -3,6 +3,6 @@ from django.shortcuts import render
 from django.template import loader
 
 
-async def SepehrView(request: HttpRequest) -> HttpResponse:
-    template = loader.get_template("core/index.html")
+async def home(request: HttpRequest) -> HttpResponse:
+    template = loader.get_template("core/home.html")
     return HttpResponse(template.render({}, request))
