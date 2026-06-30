@@ -1,0 +1,31 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}
+    {% block dashboard_title %}
+    {% endblock %}
+{% endblock %}
+
+{% block custom_css %}
+    <link rel="stylesheet" href="{% static 'core/dashboard.css' %}">
+
+    {% block dashboard_css %}
+    {% endblock %}
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard-layout d-flex bg-light">
+        {% include "dashboard/_sidebar.html" only %}
+
+        <div class="dashboard-main flex-grow-1">
+            {% block dashboard_topbar %}
+                {% include "dashboard/_topbar.html" with topbar_title="داشبورد" %}
+            {% endblock %}
+
+            <main class="dashboard-content">
+                {% block dashboard_content %}
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+{% endblock %}
