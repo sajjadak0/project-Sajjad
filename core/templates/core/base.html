@@ -1,0 +1,31 @@
+{% load static %}
+{% load vite %}
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>
+        مدیریت ساختمان | {% block title %}{% endblock %}
+    </title>
+
+    {% vite_loader "bootstrap-entry" %}
+
+    <link rel="stylesheet" href="{% static 'core/base.css' %}">
+
+    {% block custom_css %}
+    {% endblock %}
+</head>
+
+<body>
+    {% block content %}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>
